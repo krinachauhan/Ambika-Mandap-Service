@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <!-- Login Screen -->
+  <div class="login-screen" id="loginScreen">
+    <div class="login-card">
+      <div class="login-header">
+        <i class="fas fa-lock"></i>
+        <h2>Access Panel</h2>
+      </div>
+      <form id="loginForm">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" id="username" placeholder="Username" autocomplete="off" required>
+        </div>
+        <div class="input-group">
+          <i class="fas fa-key"></i>
+          <input type="password" id="password" placeholder="Password" required>
+        </div>
+        <button type="submit" class="login-btn">Sign In</button>
+        <p class="login-error" id="loginError"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Admin Dashboard -->
+  <div class="admin-dashboard" id="adminDashboard" style="display:none;">
+    <div class="admin-header">
+      <div class="admin-title">
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i></a>
+        <h1>Gallery Manager</h1>
+      </div>
+      <button class="logout-btn" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+    </div>
+
+    <div class="admin-content">
+      <!-- Hero Images -->
+      <div class="admin-card">
+        <h3><i class="fas fa-image"></i> Hero Section Images (Homepage Slideshow)</h3>
+        <div class="hero-upload-row">
+          <div class="upload-zone upload-zone-small" id="heroUploadZone">
+            <i class="fas fa-plus"></i>
+            <p>Add Image</p>
+            <input type="file" id="heroFileInput" accept="image/*" style="display:none;">
+          </div>
+          <div class="hero-images-list" id="heroImagesList"></div>
+        </div>
+      </div>
+
+      <!-- Create Album -->
+      <div class="admin-card">
+        <h3><i class="fas fa-folder-plus"></i> Create New Album</h3>
+        <form id="createFolderForm" class="create-folder-form">
+          <div class="form-inline">
+            <input type="text" id="folderName" placeholder="Album name (e.g., Wedding Mandap, Flower Mandap)" required>
+            <input type="text" id="folderDesc" placeholder="Short description (optional)">
+            <button type="submit" class="btn-add"><i class="fas fa-plus"></i> Create</button>
+          </div>
+        </form>
+      </div>
+      <div class="folders-list" id="foldersList"></div>
+    </div>
+  </div>
+
+  <!-- Upload Modal -->
+  <div class="modal-overlay" id="uploadModal" style="display:none;">
+    <div class="modal">
+      <div class="modal-header">
+        <h3><i class="fas fa-cloud-upload-alt"></i> Add Images</h3>
+        <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="upload-zone" id="uploadZone">
+          <i class="fas fa-cloud-upload-alt"></i>
+          <p>Drag & drop images here or click to browse</p>
+          <small>Images are compressed and stored in browser storage</small>
+          <input type="file" id="fileInput" multiple accept="image/*" style="display:none;">
+        </div>
+        <div class="upload-preview" id="uploadPreview"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-upload" id="uploadBtn" disabled><i class="fas fa-save"></i> Save Images</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/gallery-data.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
